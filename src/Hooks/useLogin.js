@@ -24,6 +24,8 @@ export const useLogin = () => {
       //update user context
       dispatch({ type: "LOGIN", payload: data });
     }
+    console.log(JSON.parse(localStorage.getItem("user")));
+
   };
   return {login, error}
 };
