@@ -1,1 +1,3 @@
-A full stack web app to track personal workouts, developed using MongoDB, ExpressJS, ReactJS and NodeJS Live At -
+A full stack web app to track personal workouts, developed using MongoDB, ExpressJS, ReactJS and NodeJS
+
+Live At - https://workoutbuddyfrontend.netlify.app/
