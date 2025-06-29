@@ -6,6 +6,7 @@ import { useAuthContext } from "../Hooks/useAuthContext";
 const Form = () => {
   const { user } = useAuthContext();
   const token = user?.token;
+  console.log("TOKEN IN FORM:", token);
 
   const { form, setForm, edittingInfo, setEdittingInfo, getWorkouts } =
     useContext(AppContext);
