@@ -23,7 +23,6 @@ const WorkoutContext = ({ children }) => {
 
   const getWorkouts = async () => {
     try {
-      console.log("Token after getWorkouts - ", token);
       const response = await axios.get(
         `https://workoutbuddy-backend.up.railway.app/workouts`,
         {
