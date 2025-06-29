@@ -13,7 +13,6 @@ export const useLogin = () => {
       body: JSON.stringify({ email, password }),
     });
     const data = await response.json();
-    console.log(data.token)
     dispatch({type:"SET_TOKEN", payload:data.token})
     if (!response.ok) {
       setError(data.error);
@@ -24,7 +23,6 @@ export const useLogin = () => {
       //update user context
       dispatch({ type: "LOGIN", payload: data });
     }
-    console.log(JSON.parse(localStorage.getItem("user")));
 
   };
   return {login, error}
