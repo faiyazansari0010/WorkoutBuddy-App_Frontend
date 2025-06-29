@@ -5,7 +5,10 @@ import { useAuthContext } from "../Hooks/useAuthContext";
 export const AppContext = createContext();
 
 const WorkoutContext = ({ children }) => {
-  const { token } = useAuthContext();
+  const { user } = useAuthContext();
+  const token = user?.token;
+  console.log("TOKEN IN CONTEXT:", token);
+
   console.log("Token before getWorkouts - ", token);
   const [form, setForm] = useState({
     title: "",
