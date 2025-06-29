@@ -10,7 +10,7 @@ const Records = () => {
     useContext(AppContext);
   useEffect(() => {
     getWorkouts();
-  }, []);
+  }, [getWorkouts]);
 
   //DELETE Request
   const deleteWorkout = async (id) => {
