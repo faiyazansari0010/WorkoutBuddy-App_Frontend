@@ -4,7 +4,9 @@ import { AppContext } from "../Context/WorkoutContext";
 import { useAuthContext } from "../Hooks/useAuthContext";
 
 const Form = () => {
-  const { token } = useAuthContext();
+  const { user } = useAuthContext();
+  const token = user?.token;
+
   const { form, setForm, edittingInfo, setEdittingInfo, getWorkouts } =
     useContext(AppContext);
 
@@ -19,6 +21,11 @@ const Form = () => {
 
   const createWorkout = async (e) => {
     e.preventDefault();
+    if (!user || !token) {
+      alert("You must be logged in to create a workout.");
+      return;
+    }
+
     if (!form.title || !form.reps || !form.load) {
       alert("Please fill all fields");
       return;
