@@ -21,18 +21,20 @@ const WorkoutContext = ({ children }) => {
   });
 
   const getWorkouts = async () => {
+    const apiUrl = process.env.REACT_APP_API_BASE_URL;
+
+    if (!token) {
+      console.log("User is not logged in.");
+      return;
+    }
+
     try {
-      console.log("Token after getWorkouts - ", token);
-      const response = await axios.get(
-        `${process.env.REACT_APP_API_BASE_URL}/workouts`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      const workoutData = response.data;
-      setWorkouts(workoutData);
+      const response = await axios.get(`${apiUrl}/workouts`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setWorkouts(response.data);
     } catch (error) {
       console.error("Error fetching workouts:", error);
     }
