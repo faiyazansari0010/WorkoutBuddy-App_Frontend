@@ -5,7 +5,8 @@ import { AppContext } from "../Context/WorkoutContext";
 import { useAuthContext } from "../Hooks/useAuthContext";
 
 const Records = () => {
-  const { token } = useAuthContext();
+  const { user } = useAuthContext();
+  const token = user?.token;
   const { setForm, setEdittingInfo, getWorkouts, workouts } =
     useContext(AppContext);
   useEffect(() => {
@@ -14,7 +15,7 @@ const Records = () => {
 
   //DELETE Request
   const deleteWorkout = async (id) => {
-    await axios.delete(`${process.env.REACT_APP_API_BASE_URL}/workouts/${id}`, {
+    await axios.delete(`https://workoutbuddy-backend.up.railway.app/workouts/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
