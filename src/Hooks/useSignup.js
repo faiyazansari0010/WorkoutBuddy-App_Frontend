@@ -6,6 +6,7 @@ export const useSignup = () => {
   const { dispatch } = useAuthContext();
 
   const signup = async (email, password) => {
+    console.log("Inside signup function")
     setError(null);
     const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/user/signup`, {
       method: "POST",
