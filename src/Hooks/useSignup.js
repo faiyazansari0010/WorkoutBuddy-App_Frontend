@@ -15,6 +15,7 @@ export const useSignup = () => {
     });
 
     const data = await response.json();
+    console.log(data)
     dispatch({type:"SET_TOKEN", payload:data.token})
     if (!response.ok) {
       setError(data.error);
