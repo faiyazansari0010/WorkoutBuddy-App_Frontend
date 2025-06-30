@@ -14,8 +14,8 @@ const Records = () => {
   }, [getWorkouts]);
 
   //DELETE Request
-  const deleteWorkout = async (id) => {
-    await axios.delete(`${process.env.REACT_APP_API_BASE_URL}/${id}`, {
+  const deleteWorkout = async    (id) => {
+    await axios.delete(`${process.env.REACT_APP_API_BASE_URL}/workouts/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
