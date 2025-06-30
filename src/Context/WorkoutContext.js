@@ -24,7 +24,7 @@ const WorkoutContext = ({ children }) => {
   const getWorkouts = async () => {
     try {
       const response = await axios.get(
-        `https://workoutbuddy-backend.up.railway.app/workouts`,
+        `${process.env.REACT_APP_API_BASE_URL}/workouts`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

@@ -7,7 +7,7 @@ export const useLogin = () => {
 
   const login = async (email, password) => {
     setError(null);
-    const response = await fetch("https://workoutbuddy-backend.up.railway.app/user/login", {
+    const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/user/login`, {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({ email, password }),

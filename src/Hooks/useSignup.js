@@ -7,7 +7,7 @@ export const useSignup = () => {
 
   const signup = async (email, password) => {
     setError(null);
-    const response = await fetch("https://workoutbuddy-backend.up.railway.app/user/signup", {
+    const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/user/signup`, {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({ email, password }),
